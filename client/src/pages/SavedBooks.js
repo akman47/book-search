@@ -10,7 +10,7 @@ import { GET_ME } from '../utils/queries';
 
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
+  //const [userData, setUserData] = useState({});
   const [removeBook] = useMutation(REMOVE_BOOK);
 
   // use this to determine if `useEffect()` hook needs to run again
@@ -41,10 +41,11 @@ const SavedBooks = () => {
   //   getUserData();
   // }, [userDataLength]);
 
-  const { loading, data } = useQuery(GET_ME);
-  const user = data?.me || {};
-  console.log(data);
-  setUserData(user);
+  const { loading, data: userData } = useQuery(GET_ME);
+  // const user = data?.me || {};
+  // console.log("data", data);
+  // setUserData(user);
+  console.log("user", userData);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
@@ -64,7 +65,7 @@ const SavedBooks = () => {
       // }
 
       // const updatedUser = await response.json();
-      setUserData(updatedUser);
+      //setUserData(updatedUser);
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
