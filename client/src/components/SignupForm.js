@@ -14,6 +14,7 @@ const SignupForm = () => {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
+  // use GraphQL mutation to add user
   const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
@@ -36,13 +37,13 @@ const SignupForm = () => {
         variables: { ...userFormData}
       });
 
-      if (!data) {
-        throw new Error('something went wrong!');
-      }
+      // if (!data) {
+      //   throw new Error('something went wrong!');
+      // }
 
       //const { token, user } = await response.json();
-      console.log(user);
-      Auth.login(data.addUsertoken);
+      // console.log(user);
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
       setShowAlert(true);
@@ -109,7 +110,6 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
-      {error && <div>Sign up failed</div>}
     </>
   );
 };

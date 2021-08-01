@@ -34,12 +34,8 @@ const LoginForm = () => {
         variables: { ...userFormData }
       });
 
-      if (!data) {
-        throw new Error('something went wrong!');
-      }
-
       //const { token, user } = await response.json();
-      console.log(user);
+      //console.log(user);
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
