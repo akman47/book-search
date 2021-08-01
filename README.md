@@ -15,6 +15,7 @@ A MERN Google Books API search engine application where users can search for new
 * Bcrypt
 * GraphQL
 * JSON Web Token
+* Apollo Server
 
 ## Application
 https://akm-booksearch.herokuapp.com/
