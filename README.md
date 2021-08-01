@@ -37,4 +37,4 @@ After signing up and creating an account, users can search for books by title, a
 ![Snapshot of Book Search Application](./book-search.gif)
 
 ## Credit
-Built by Angela Man
+Angela Man
