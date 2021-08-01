@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
 // import { getMe, deleteBook } from '../utils/API';
@@ -11,6 +11,7 @@ import { GET_ME } from '../utils/queries';
 
 const SavedBooks = () => {
   const [userData, setUserData] = useState({});
+  const [removeBook] = useMutation(REMOVE_BOOK);
 
   // use this to determine if `useEffect()` hook needs to run again
   // const userDataLength = Object.keys(userData).length;
@@ -42,15 +43,8 @@ const SavedBooks = () => {
 
   const { loading, data } = useQuery(GET_ME);
   const user = data?.me || {};
+  console.log(data);
   setUserData(user);
-
-  if (!user) {
-    return (
-      <h4>You need to be logged in to delete a book!</h4>
-    )
-  }
-
-  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {

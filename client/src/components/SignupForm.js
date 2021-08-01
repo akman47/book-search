@@ -15,7 +15,7 @@ const SignupForm = () => {
   const [showAlert, setShowAlert] = useState(false);
 
   // use GraphQL mutation to add user
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -34,7 +34,7 @@ const SignupForm = () => {
 
     try {
       const { data } = await addUser({
-        variables: { ...userFormData}
+        variables: { ...userFormData }
       });
 
       // if (!data) {
