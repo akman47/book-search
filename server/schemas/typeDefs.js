@@ -10,7 +10,7 @@ const typeDefs = gql`
     }
 
     type Book {
-        bookId: Int
+        bookId: String
         authors: [String]
         description: String
         title: String
@@ -19,7 +19,7 @@ const typeDefs = gql`
     }
 
     input BookInput {
-        bookId: Int
+        bookId: String
         authors: [String]
         description: String
         title: String
